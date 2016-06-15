@@ -5,13 +5,14 @@ import Data.List (sortBy)
 
 data Item = Item String Int Int deriving Show
 
+stripNonDigits = filter isDigit
+
 parseLine :: Int -> Int -> Int -> String -> Item
 parseLine nameidx aidx bidx line = 
-	let raw   = words line
-	    elems = fmap (filter ((/=) '*')) raw
+	let elems   = words line
 	    daystr  = elems !! nameidx
-	    maxtstr = elems !! aidx
-	    mintstr = elems !! bidx
+	    maxtstr = stripNonDigits $ elems !! aidx
+	    mintstr = stripNonDigits !! bidx
 	    maxt    = read maxtstr :: Int
 	    mint    = read mintstr :: Int in
 	    Item daystr maxt mint
