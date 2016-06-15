@@ -14,7 +14,7 @@
             (apply map list
               (filter-not null?
                 (for/list ([i (in-naturals 1)]
-                           [line (read-lines "data/football.dat")])
+                           [line (read-lines "../data/football.dat")])
                   (let ([split (filter-not (lambda (a) (string=? a "-")) (string-split line))])
                     (if (< i 2)
                       split

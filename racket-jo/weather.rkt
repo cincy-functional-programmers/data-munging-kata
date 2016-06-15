@@ -10,7 +10,7 @@
       (filter-not null?
         ; Build a list of tuples (Day TempDiff)
         (for/list ([i (in-naturals 1)]
-                   [line (read-lines "data/weather.dat")])
+                   [line (read-lines "../data/weather.dat")])
           ; Skip the first two lines of garbage
           (if (> i 2)
             (let ([split (string-split line)]) ; split the line on spaces
