@@ -12,7 +12,7 @@ parseLine nameidx aidx bidx line =
 	let elems   = words line
 	    daystr  = elems !! nameidx
 	    maxtstr = stripNonDigits $ elems !! aidx
-	    mintstr = stripNonDigits !! bidx
+	    mintstr = stripNonDigits $ elems !! bidx
 	    maxt    = read maxtstr :: Int
 	    mint    = read mintstr :: Int in
 	    Item daystr maxt mint
