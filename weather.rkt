@@ -5,10 +5,7 @@
 ; The first of the remaining tuple is the day with the smallest temp diff.
 (first
   ; Find the tuple with minimum second argument
-  (foldl
-    (lambda (a result)
-      (if (< (second a) (second result)) a result))
-      '(100 100)
+  (foldl (lambda (a result) (if (< (second a) (second result)) a result)) '("" 100)
       ; Filter out the empty items
       (filter-not null?
         ; Build a list of tuples (Day TempDiff)
